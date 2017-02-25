@@ -1,0 +1,131 @@
+/* line 1, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+.navbar-custom {
+    background: rgba(0,0,0,0);
+    text-transform: uppercase;
+    border: none;
+    padding: 5px;
+    box-shadow: none;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+    /* line 9, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+    .navbar-custom a:focus {
+        outline: none;
+    }
+
+    /* line 12, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+    .navbar-custom .navbar-brand {
+        font-weight: 100;
+        padding-left: 5%;
+        color: #ddd;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+    .navbar-custom .navbar-brand b {
+        color: white;
+        font-weight: 900;
+    }
+
+        /* line 26, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+        .navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus, .navbar-custom .navbar-brand:active, .navbar-custom .navbar-brand.active {
+            color: white;
+        }
+
+    .nav-links {
+        padding-right: 5%;
+    }
+
+    /* line 30, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+    .navbar-custom .navbar-nav {
+        letter-spacing: 1px;
+    }
+
+        /* line 32, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+        .navbar-custom .navbar-nav li {
+            text-align: right;
+        }
+
+            /* line 34, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+            .navbar-custom .navbar-nav li a {
+                color: white;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+
+                /* line 38, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+                .navbar-custom .navbar-nav li a:hover {
+                    color: #fff;
+                    outline: none;
+                    background: #CF6766;
+                }
+
+                /* line 44, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+                .navbar-custom .navbar-nav li a:focus, .navbar-custom .navbar-nav li a:active {
+                    color: white;
+                }
+
+            /* line 49, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+            .navbar-custom .navbar-nav li.active a {
+                color: #fff;
+                background: #aaa;
+            }
+
+                /* line 54, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+                .navbar-custom .navbar-nav li.active a:hover, .navbar-custom .navbar-nav li.active a:focus, .navbar-custom .navbar-nav li.active a:active {
+                    color: #fff;
+                    background: #CF6766;
+                }
+
+    /* line 62, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+    .navbar-custom .navbar-toggle {
+        color: #031424;
+        text-transform: uppercase;
+        font-size: 10px;
+        border-color: white;
+    }
+
+        /* line 68, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/nav.scss */
+        .navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
+            background-color: #30415D;
+            color: white;
+            border-color: #30415D;
+        }
+
+/* line 1, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/button.scss */
+.fade-background {
+    background-color: #333332;
+}
+
+.slide-up {
+    top: -60px;
+}
+
+.navbar-collapse.collapse {
+    display: block !important;
+}
+
+.navbar-nav > li, .navbar-nav {
+    float: left !important;
+}
+
+    .navbar-nav.navbar-right:last-child {
+        margin-right: -15px !important;
+    }
+
+    .navbar-inner {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-inner.navbar-nav {
+        float: none;
+    }
+
+@media (max-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}

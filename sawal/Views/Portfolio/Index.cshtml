@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using sawal.Models;
+@using sawal.Common;
+
+@{
+    var blogs = (BlogListModel)ViewBag.BlogListModel;
+}
+<div class="header" id="page-top">
+    <div class="header-text">
+        @*<h1>An investment in knowledge pays the best interest.</h1>
+            <h1>Any fool can know. The point is to understand.</h1>*@
+        <h1>"The only true wisdom is in knowing you know nothing."</h1>
+        -Socrates
+    </div>
+    <div class="bottom-triangle"></div>
+</div>
+<div class="data-section" id="portfolio">
+    <div class="container-fluid cf-50">
+        <div class="row recent pad-top-5">
+            <div class="col-sm-12 text-center">
+                <h3>All Projects</h3>
+            </div>
+            <div class="col-sm-12 recent-list">
+                @{
+                    var i = 0;
+                    foreach (BlogModel blog in blogs.BlogList) {
+                        if (blog.BlogTypeId == BlogType.Application) {
+                            <div class="row pad-vert-5">
+                                <div class="col-sm-12 col-md-8 recent-list-title">
+                                    <a href="#">@blog.Title</a>
+                                </div>
+                                <div class="col-sm-12 col-md-4 recent-list-date">
+                                    @blog.PublishDate.ToString("MMM dd, yyyy")
+                                </div>
+                            </div>
+                            i++;
+                        }
+                    }
+
+                    if (i == 0) {
+                        <div class="row pad-vert-5">
+                            <div class="col-sm-12 col-md-12 text-center">
+                                <h3>
+                                    Nothing here yet, but it's on the way!<br />
+                                    Check back soon.
+                                </h3>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,151 @@
+﻿@using sawal.Models;
+@using sawal.Common;
+@{
+    var blogs = (BlogListModel)ViewBag.BlogListModel;
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@model sawal.Models.BlogModel
+<div class="header" id="page-top">
+    <div class="header-text">
+        @*<h1>An investment in knowledge pays the best interest.</h1>
+            <h1>Any fool can know. The point is to understand.</h1>*@
+        <h1>"The only true wisdom is in knowing you know nothing."</h1>
+        -Socrates
+    </div>
+    <div class="bottom-triangle"></div>
+</div>
+<div class="data-section">
+    <div class="container-fluid cf-70">
+        <div class="row content-box">
+            <div class="col-sm-12 col-lg-12 header-title text-center pad-top-5">
+                <h3>Dashboard</h3>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-lg-12 pad-top-5">
+                    <table class="table data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Active</th>
+                                <th>Publish Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th colspan="5" class="text-center">Add New <i class="fa fa-plus-circle" aria-hidden="true"></i></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (BlogModel blog in blogs.BlogList) {
+                                <tr>
+                                    <td>@blog.Title</td>
+                                    <td>@blog.BlogType</td>
+                                    @if (blog.Active) {
+                                        <td>Yes</td>
+                                    } else {
+                                        <td>No</td>
+                                    }
+                                    <td>@blog.PublishDate.ToString("MMM dd, yyyy")</td>
+                                    <td>
+                                        @if (blog.Active) {
+                                            <a href="@Url.Action("Service","Main", new { blogid = blog.Id, service = "deactivate" })" title="Deactivate"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                                        } else {
+                                            <a href="@Url.Action("Service","Main", new { blogid = blog.Id, service = "activate" }) " title="Activate"><i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                                        }
+                                        <a href="@Url.Action("Service","Main", new { blogid = blog.Id, service = "delete" }) " title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a><br />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="col-sm-12 col-lg-12 header-title text-center pad-top-5">
+                <h3>Post New Blog</h3>
+            </div>
+            <div class="col-sm-12 col-lg-12 header-title">
+                @if (Html.ValidationSummary(true) != null && !Html.ValidationSummary().ToString().Contains("none")) {
+                    <div class="row">
+                        <div class="col-sm-8">
+                            @Html.ValidationSummary(true)
+                        </div>
+                    </div>
+                }
+                <br />
+                <br />
+                @using (Html.BeginForm()) {
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-4 col-lg-4">
+                            Post Type:<select class="form-control" name="BlogTypeId" id="BlogTypeId">
+                                <option value="82914174-79e3-e611-80d0-001c42c065e7">Publication</option>
+                                <option value="83914174-79e3-e611-80d0-001c42c065e7">Application</option>
+                                <option value="5db1529e-79e3-e611-80d0-001c42c065e7">Blog</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                            Title:
+                        </div>
+                        <div class="col-sm-4 col-lg-4">
+                            <input type="text" id="Title" name="Title" class="form-control input-validation-error text-box single-line" data-val-required="The Title field is required." data-val="true" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                            Caption:
+                        </div>
+                        <div class="col-sm-4 col-lg-4">
+                            <input type="text" class="form-control" id="Caption" name="Caption" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                            URL:
+                        </div>
+                        <div class="col-sm-4 col-lg-4">
+                            <input class="form-control" id="Url" name="Url" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-12">
+                            <textarea id="Html" name="Html" data-val-required="HTML required." data-val="true"></textarea>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                            Publish Date:
+                        </div>
+                        <div class="col-sm-4 col-lg-4">
+                            <input type="date" class="form-control datepicker" id="PublishDate" name="PublishDate" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                            Image Path:
+                        </div>
+                        <div class="col-sm-4 col-lg-4">
+                            <input class="form-control" id="ImagePath" name="ImagePath" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-offset-3 col-lg-offset-3 col-sm-2 col-lg-2">
+                            <input type="submit" class="btn btn-default" value="Submit Post" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

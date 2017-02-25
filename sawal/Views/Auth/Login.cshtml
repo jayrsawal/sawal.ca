@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model sawal.Models.LoginModel
+<div class="header" id="page-top">
+    <div class="header-text">
+        @*<h1>An investment in knowledge pays the best interest.</h1>
+            <h1>Any fool can know. The point is to understand.</h1>*@
+        <h1>"The only true wisdom is in knowing you know nothing."</h1>
+        -Socrates
+    </div>
+    <div class="bottom-triangle"></div>
+</div>
+<div class="data-section" id="portfolio">
+    <div class="container-fluid cf-50">
+        <div class="row">
+            <div class="col-sm-8">
+                @Html.ValidationSummary(true)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @using (Html.BeginForm()) {
+                <div class="row">
+                    <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                        Username:
+                    </div>
+                    <div class="col-sm-2 col-lg-2">
+                        <input name="Username" class="input-validation-error text-box single-line" id="Username" type="text" value="" data-val-required="The Username field is required." data-val="true">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                        Password:
+                    </div>
+                    <div class="col-sm-2 col-lg-2">
+                        <input name="Password" class="input-validation-error text-box single-line password" id="Password" type="password" value="" data-val-required="The Password field is required." data-val="true">
+                    </div>
+                </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-offset-3 col-lg-offset-3 col-sm-2 col-lg-2">
+                            <input type="submit" class="btn btn-default" value="Login" />
+                        </div>
+                    </div>
+            }
+        </div>
+    </div>
+</div>

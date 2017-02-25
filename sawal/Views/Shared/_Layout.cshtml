@@ -1,0 +1,71 @@
+﻿@using sawal.Models;
+@using sawal.Common;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>@ViewBag.Page - @ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/css")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/css/plugins/code_view.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/css/plugins/image_manager.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/css/plugins/image.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/css/plugins/table.min.css">
+    
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="150">
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="testing">
+            <a class="navbar-brand" href="@Url.Action("index", "main")"><b>VICTOR</b> SAWAL</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="nav-links pull-right">
+            <ul class="nav navbar-nav">
+                <li class="page-scroll"> <a href="@Url.Action("index", "portfolio")">Portfolio</a> </li>
+                <li class="page-scroll"> <a href="@Url.Action("index", "blog")">Blog</a> </li>
+                @if (Request.IsAuthenticated) {
+                    <li class="page-scroll"><a href="@Url.Action("dashboard", "main")">Dashboard</a></li>
+                    <li class="page-scroll"><a href="@Url.Action("logout", "auth")">Logout</a></li>
+                }
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+    <div class="main-content">
+        @RenderBody()
+    </div>
+    <div class="footer navbar" id="footer">
+        <form id="contact">
+            <div class="row" id="email"><a href="mailto:victor.sawal@gmail.com?Subject=Inquiry&20From&20Oducado.com" target="_top">victor.sawal@gmail.com</a></div>
+            <div class="row" id="phone">1+ (647) 774-5769</div>
+            <div class="row"> <a href="https://ca.linkedin.com/in/victor-sawal-jr-6069a563" target="_blank"><span class="fa fa-linkedin-square fa-3x"></span></a> <a href="https://www.instagram.com/jayrsawal/" target="_blank"><span class="fa fa-instagram fa-3x"></span></a> <a href="https://github.com/jayrsawal"><span class="fa fa-github-square fa-3x"></span></a> </div>
+        </form>
+    </div>
+    <div id="snacks"></div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/js/froala_editor.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/js/plugins/code_view.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/js/plugins/code_beautifier.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/js/plugins/paragraph_style.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/js/plugins/draggable.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/js/plugins/link.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.4.2/js/plugins/table.min.js"></script>
+    
+</body>
+</html>

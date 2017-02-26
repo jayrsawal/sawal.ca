@@ -11,7 +11,10 @@ namespace sawal.Controllers
     public class BlogController : ControllerTemplate
     {
         // GET: Blog
+        [AllowAnonymous]
         public ActionResult Index() {
+            ViewBag.Page = "Victor Sawal";
+            ViewBag.Title = "All Blogs";
             return View();
         }
 

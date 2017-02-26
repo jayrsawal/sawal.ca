@@ -11,7 +11,7 @@
             offset_top: hviewport
             , scroll_threshold: (hviewport / 8)
             , opaque_threshold_down: (hviewport / 4)
-            , opaque_threshold_up: (hviewport / 2)
+            , opaque_threshold_up: (hviewport / 8)
             , animation: true
             , hide_class: "slide-up"
             , fade_class: "fade-background"

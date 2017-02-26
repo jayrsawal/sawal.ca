@@ -69,6 +69,14 @@ html {
     width: 100%;
 }
 
+.radial-overlay {
+    background: #333332; /* For browsers that do not support gradients */
+    background: -webkit-radial-gradient(#777, #333, black); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(#777, #333, black); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(#777, #333, black); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(#777, #333, black); /* Standard syntax */
+}
+
 .header {
     position: relative;
     padding: 15px;
@@ -78,18 +86,20 @@ html {
     background-color: #333332;
     text-transform: uppercase;
     text-align: center;
-    background-image: url("../img/pattern/footer_lodyas/footer_lodyas.png");
-    background-repeat: repeat;
+    background-image: url("../img/victor-sawal_cover.jpg");
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid #555;
 }
 
     .header .header-text {
-        padding: 5% 0 11% 0;
+        padding: 10% 0 16% 0;
     }
 
         .header .header-text h1 {
-            font-size: 100%;
+            font-size: 1.5em;
             margin: 0 0;
-            padding: 0 0;
+            padding: 0 5%;
             line-height: inherit;
         }
 
@@ -111,10 +121,15 @@ html {
     top: 30px;
     height: 0;
     width: 0;
-    border-top: 15px solid #333332;
+    border-top: 15px solid #535353;
     border-right: 15px solid white;
     border-left: 15px solid white;
     background-color: gray;
+}
+
+.hor-border-blue {
+    border-right: 15px solid #4481af;
+    border-left: 15px solid #4481af ;
 }
 
 .main-content {
@@ -171,8 +186,10 @@ html {
 .footer {
     font-family: "fontawesome";
     padding: 50px;
-    background-color: #FFFFFF;
+    background-color: #aaa;
     min-height: 200px;
+    margin: 0 0;
+    border-radius: 0;
 }
 
     .footer #email, .footer #phone {
@@ -182,6 +199,10 @@ html {
 #contact {
     width: 80%;
     margin: 0 auto;
+}
+
+#contact a:hover {
+    background: none;
 }
 
     #contact .row:not(:first-child) {

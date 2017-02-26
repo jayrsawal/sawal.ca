@@ -1,16 +1,16 @@
 ﻿#read {
-    background-color: #808080;
+    background-color: #4481af;
+    padding: 0 0;
+    padding-top: 1%;
 }
 
     /* line 120, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/style.scss */
     #read .book-item {
         color: #031424;
         box-shadow: 2px 10px 15px rgba(50,50,50,0.2);
-        background-color: #8EAEB3;
         height: 225px;
         width: 190px;
-        margin: 1%;
-        margin-bottom: 5%;
+        margin: 1% 1% 2.5% 1%;
         padding: 25px;
         overflow: hidden;
         -webkit-transition: all 0.4s ease;
@@ -19,6 +19,7 @@
 
         /* line 132, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/style.scss */
         #read .book-item:hover {
+            background: none;
             cursor: pointer;
         }
 
@@ -28,12 +29,14 @@
             top: -25px;
             left: -25px;
             width: 235px;
+            opacity: 0.6;
             -webkit-transition: all 0.4s ease;
             transition: all 0.4s ease;
         }
 
             /* line 142, C:/Users/Jayr/Documents/GitHub/oducado.com/sass/style.scss */
             #read .book-item img:hover {
+                opacity: 1;
                 width: 270px;
                 left: -40px;
             }

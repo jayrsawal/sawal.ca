@@ -6,12 +6,13 @@ using System.Web.Mvc;
 using sawal.Models;
 using sawal.Common;
 
-namespace sawal.Controllers
-{
+namespace sawal.Controllers {
     public class PortfolioController : ControllerTemplate {
         // GET: Portfolio
-        public ActionResult Index()
-        {
+        [AllowAnonymous]
+        public ActionResult Index() {
+            ViewBag.Page = "Victor Sawal";
+            ViewBag.Title = "All Projects";
             return View();
         }
 

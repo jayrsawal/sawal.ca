@@ -41,9 +41,13 @@ html {
     padding: 11% 0;
 }
 
+.pad-top-7 {
+    padding-top: 7%;
+}
+
 .pad-top-5 {
     padding-top: 5%;
-}
+}   
 
 .pad-top-3 {
     padding-top: 3%;
@@ -80,7 +84,7 @@ html {
 .header {
     position: relative;
     padding: 15px;
-    padding-top: 150px;
+    padding-top: 125px;
     min-height: 10%;
     color: white;
     background-color: #333332;
@@ -136,6 +140,7 @@ html {
     width: 100%;
     color: #333332;
     font-size: 1.7em;
+    overflow: hidden;
 }
 
 #about {
@@ -184,12 +189,12 @@ html {
     }
 
 .footer {
-    font-family: "fontawesome";
-    padding: 50px;
+    padding: 50px 0;
     background-color: #aaa;
     min-height: 200px;
     margin: 0 0;
     border-radius: 0;
+    overflow: hidden;
 }
 
     .footer #email, .footer #phone {
@@ -219,8 +224,17 @@ html {
 
 
 @media only screen and (max-width : 768px) {
+    .greeting {
+        text-align: center;
+        padding-bottom: 25px;
+    }
+
     .container-fluid {
         width: 100%;
+    }
+
+    .bottom-triangle {
+        border-top: 15px solid #3e3e3e;
     }
 }
 

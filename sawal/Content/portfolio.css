@@ -22,6 +22,7 @@
     color: #aaa;
     line-height: 2.5;
     font-size: 0.5em;
+    padding-left: 20px;
 }
 
 @media only screen and (max-width : 768px) {

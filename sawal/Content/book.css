@@ -70,6 +70,10 @@
         margin: 1% auto;
         margin-bottom: 45px;
     }
+
+        #read .book-item img {
+            opacity: 0.8;
+        }
 }
 
 @media only screen and (max-width : 992px) {

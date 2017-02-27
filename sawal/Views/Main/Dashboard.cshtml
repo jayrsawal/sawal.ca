@@ -42,7 +42,7 @@
                         </tfoot>
                         <tbody>
                             @foreach (BlogModel blog in blogs.BlogList) {
-                                <tr>
+                                <tr onclick="getBlog('@blog.Id');">
                                     <td>@blog.Title</td>
                                     <td>@blog.BlogType</td>
                                     @if (blog.Active) {
@@ -80,71 +80,75 @@
                 }
                 <br />
                 <br />
-                @using (Html.BeginForm()) {
-                    <div class="row">
-                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-4 col-lg-4">
-                            Post Type:<select class="form-control" name="BlogTypeId" id="BlogTypeId">
-                                <option value="82914174-79e3-e611-80d0-001c42c065e7">Publication</option>
-                                <option value="83914174-79e3-e611-80d0-001c42c065e7">Application</option>
-                                <option value="5db1529e-79e3-e611-80d0-001c42c065e7">Blog</option>
-                            </select>
+                <div id="mainform">
+                    @using (Html.BeginForm()) {
+                        <input type="hidden" id="Id" name="Id" />
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-lg-offset-1 col-sm-4 col-lg-4">
+                                Post Type:<select class="form-control" name="BlogTypeId" id="BlogTypeId">
+                                    <option value="82914174-79e3-e611-80d0-001c42c065e7">Publication</option>
+                                    <option value="83914174-79e3-e611-80d0-001c42c065e7">Application</option>
+                                    <option value="5db1529e-79e3-e611-80d0-001c42c065e7">Blog</option>
+                                    <option value="9f6ce0f6-7efc-e611-950d-06ee5a15ac37">Book</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
-                            Title:
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                                Title:
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <input type="text" id="Title" name="Title" class="form-control input-validation-error text-box single-line" data-val-required="The Title field is required." data-val="true" />
+                            </div>
                         </div>
-                        <div class="col-sm-4 col-lg-4">
-                            <input type="text" id="Title" name="Title" class="form-control input-validation-error text-box single-line" data-val-required="The Title field is required." data-val="true" />
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                                Caption:
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <input type="text" class="form-control" id="Caption" name="Caption" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
-                            Caption:
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                                URL:
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <input class="form-control" id="Url" name="Url" />
+                            </div>
                         </div>
-                        <div class="col-sm-4 col-lg-4">
-                            <input type="text" class="form-control" id="Caption" name="Caption" />
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-12">
+                                <textarea id="Html" name="Html" data-val-required="HTML required." data-val="true"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
-                            URL:
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                                Publish Date:
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <input type="date" class="form-control datepicker" id="PublishDate" name="PublishDate" />
+                            </div>
                         </div>
-                        <div class="col-sm-4 col-lg-4">
-                            <input class="form-control" id="Url" name="Url" />
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
+                                Image Path:
+                            </div>
+                            <div class="col-sm-4 col-lg-4">
+                                <input class="form-control" id="ImagePath" name="ImagePath" />
+                            </div>
                         </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-sm-12 col-lg-12">
-                            <textarea id="Html" name="Html" data-val-required="HTML required." data-val="true"></textarea>
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-offset-3 col-lg-offset-3 col-sm-2 col-lg-2">
+                                <input type="submit" class="btn btn-default" value="Submit Post" />
+                            </div>
                         </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
-                            Publish Date:
-                        </div>
-                        <div class="col-sm-4 col-lg-4">
-                            <input type="date" class="form-control datepicker" id="PublishDate" name="PublishDate" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-offset-1 col-lg-offset-1 col-sm-2 col-lg-2">
-                            Image Path:
-                        </div>
-                        <div class="col-sm-4 col-lg-4">
-                            <input class="form-control" id="ImagePath" name="ImagePath" />
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-sm-offset-3 col-lg-offset-3 col-sm-2 col-lg-2">
-                            <input type="submit" class="btn btn-default" value="Submit Post" />
-                        </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
         </div>
     </div>

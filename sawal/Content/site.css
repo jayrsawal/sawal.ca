@@ -89,7 +89,7 @@ html {
     background-image: url("../img/victor-sawal_cover.jpg");
     background-size: cover;
     background-position: center;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #4c4c4c;
 }
 
     .header .header-text {
@@ -121,7 +121,7 @@ html {
     top: 30px;
     height: 0;
     width: 0;
-    border-top: 15px solid #535353;
+    border-top: 15px solid #4c4c4c;
     border-right: 15px solid white;
     border-left: 15px solid white;
     background-color: gray;

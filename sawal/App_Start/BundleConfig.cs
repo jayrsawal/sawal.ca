@@ -21,7 +21,8 @@ namespace sawal {
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                      "~/Scripts/peekaboo.js"
-                     , "~/Scripts/site.js"));
+                     , "~/Scripts/site.js"
+                     , "~/Scripts/dashboard.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/auth").Include(
                       "~/Scripts/login.js"));

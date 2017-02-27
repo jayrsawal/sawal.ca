@@ -15,6 +15,7 @@
             , animation: true
             , hide_class: "slide-up"
             , fade_class: "fade-background"
+            , hide_height_auto: true
         };
 
         settings = $.extend(defaults, options);
@@ -45,14 +46,23 @@
 
                 // start checking if we need to hide
                 if (hdiff < -settings.scroll_threshold) {
-                    $(this).addClass(settings.hide_class);
+                    if (settings.hide_height_auto) {
+                        var navHeight = -($(this).height() + 10);
+                        $(this).css("top", navHeight);
+                    } else {
+                        $(this).addClass(hide_class);
+                    }
                     scrollStart = scrollTop;
                     bTrack = true;
                 }
 
                 // start checking if we need to hide
                 if (hdiff > settings.scroll_threshold) {
-                    $(this).removeClass(settings.hide_class);
+                    if (settings.hide_height_auto) {
+                        $(this).css("top", 0);
+                    } else {
+                        $(this).removeClass(hide_class);
+                    }
                     scrollStart = scrollTop;
                     bTrack = true;
                 }

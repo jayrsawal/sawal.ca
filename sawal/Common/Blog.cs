@@ -48,11 +48,12 @@ order by b.publishdate desc";
         public BlogModel GetBlog(string strId) {
             BlogModel blog = new BlogModel();
 
-            SqlCommand cmd = new SqlCommand(@"select * from blog where url=@id");
+            SqlCommand cmd = new SqlCommand(@"select * from blog where url=@id or id=@id");
             cmd.Parameters.AddWithValue("@id", strId);
             XElement nd = db.ExecQueryElem(cmd, "Blog");
-
-            blog.SerializeFromXml(nd);
+            if (nd != null) {
+                blog.SerializeFromXml(nd);
+            }
             return blog;
         }
 
@@ -130,39 +131,29 @@ values(@nav, @navtitle, @title, @caption, @html, @blogtypeid, @active, @publishd
 
         public bool EditBlog(BlogModel blog) {
             SqlCommand cmd = new SqlCommand(@"
-update blog set active=@active
-, nav=@nav
-, navtitle=@navtitle
+update blog set
+navtitle=@navtitle
 , title=@title
 , caption=@caption
 , html=@html
 , blogtypeid=@blogtypeid
 , publishdate=@publishdate
+, url=@url
+, imgpath=@imagepath
 where id=@id
 ");
             cmd.Parameters.AddWithValue("@id", blog.Id);
-
-            if (blog.Nav) {
-                cmd.Parameters.AddWithValue("@nav", 1);
-            } else {
-                cmd.Parameters.AddWithValue("@nav", DBNull.Value);
-            }
-
-            if (blog.Active) {
-                cmd.Parameters.AddWithValue("@active", 1);
-            } else {
-                cmd.Parameters.AddWithValue("@active", DBNull.Value);
-            }
-
-            cmd.Parameters.AddWithValue("@navtitle", blog.NavTitle);
-            cmd.Parameters.AddWithValue("@title", blog.Title);
-            cmd.Parameters.AddWithValue("@caption", blog.Caption);
-            cmd.Parameters.AddWithValue("@html", blog.Html);
+            cmd.Parameters.AddWithValue("@navtitle", (blog.NavTitle == null ? "" : blog.NavTitle));
+            cmd.Parameters.AddWithValue("@title", (blog.Title == null ? "" : blog.Title));
+            cmd.Parameters.AddWithValue("@caption", (blog.Caption == null ? "" : blog.Caption));
+            cmd.Parameters.AddWithValue("@html", (blog.Html == null ? "" : blog.Html));
+            cmd.Parameters.AddWithValue("@url", (blog.Url == null ? "" : blog.Url));
+            cmd.Parameters.AddWithValue("@imagepath", (blog.ImagePath == null ? "" : blog.ImagePath));
             cmd.Parameters.AddWithValue("@blogtypeid", blog.BlogTypeId);
             cmd.Parameters.AddWithValue("@publishdate", blog.PublishDate);
             try {
-                db.ExecNonQuery(cmd);
-            } catch {
+                db.ExecQuery(cmd);
+            } catch(Exception ex) {
                 return false;
             }
             return true;

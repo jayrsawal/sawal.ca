@@ -11,9 +11,9 @@ namespace sawal {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.LowercaseUrls = true;
             routes.MapRoute(
-                name: "Publication",
-                url: "media/{id}",
-                defaults: new { controller = "Publication", action = "Get", id = UrlParameter.Optional }
+                name: "blog",
+                url: "blog/{id}",
+                defaults: new { controller = "Blog", action = "Get", id = UrlParameter.Optional }
             );
             routes.MapRoute(
                 name: "Default",

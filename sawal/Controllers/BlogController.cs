@@ -22,6 +22,9 @@ namespace sawal.Controllers
         [AllowAnonymous]
         public ActionResult Get(string id) {
             //string id = Request.Params["name"].ToString();
+            if(id == null) {
+                return View("Index");
+            }
             Blog b = new Blog(this.db);
             BlogModel blog = b.GetBlog(id);
             ViewBag.Blog = blog;

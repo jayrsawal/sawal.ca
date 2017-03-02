@@ -48,8 +48,12 @@ order by b.publishdate desc";
         public BlogModel GetBlog(string strId) {
             BlogModel blog = new BlogModel();
 
-            SqlCommand cmd = new SqlCommand(@"select * from blog where url=@id or id=@id");
-            cmd.Parameters.AddWithValue("@id", strId);
+            SqlCommand cmd = new SqlCommand(@"select * from blog where url=@id or @id is null");
+            if (strId != null) {
+                cmd.Parameters.AddWithValue("@id", strId);
+            } else {
+                cmd.Parameters.AddWithValue("@id", DBNull.Value);
+            }
             XElement nd = db.ExecQueryElem(cmd, "Blog");
             if (nd != null) {
                 blog.SerializeFromXml(nd);

@@ -13,6 +13,7 @@ namespace sawal.Controllers {
         public ActionResult Index() {
             ViewBag.Page = "Victor Sawal";
             ViewBag.Title = "All Projects";
+            this.PageViewLog(Request);
             return View();
         }
 
@@ -24,6 +25,7 @@ namespace sawal.Controllers {
             ViewBag.Blog = blog;
             ViewBag.Page = "Victor Sawal";
             ViewBag.Title = blog.NavTitle;
+            this.PageViewLog(Request);
             return View("Index");
         }
     }

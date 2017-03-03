@@ -15,6 +15,7 @@ namespace sawal.Controllers {
     public class AuthController : ControllerTemplate {
         // GET: Auth
         public ActionResult Index() {
+            this.PageViewLog(Request);
             return View();
         }
 
@@ -28,6 +29,7 @@ namespace sawal.Controllers {
             LoginModel model = new LoginModel {
                 ReturnUrl = strReturnUrl
             };
+            this.PageViewLog(Request);
             return View(model);
         }
 
@@ -56,8 +58,8 @@ namespace sawal.Controllers {
         public ActionResult Logout() {
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
-
             authManager.SignOut("ApplicationCookie");
+            this.PageViewLog(Request);
             return RedirectToAction("login", "auth");
         }
 

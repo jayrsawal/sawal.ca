@@ -18,13 +18,14 @@ namespace sawal.Controllers {
         public ActionResult Index() {
             ViewBag.Page = "Victor Sawal";
             ViewBag.Title = "Home";
+            this.PageViewLog(Request);
             return View();
         }
 
         [AllowAnonymous]
         public ActionResult Error() {
             try {
-                this.LogException(Server.GetLastError());
+                this.LogException(Request, Server.GetLastError());
             } catch { }
             return View();
         }
@@ -32,6 +33,7 @@ namespace sawal.Controllers {
         [HttpGet]
         public ActionResult Dashboard() {
             ViewBag.Page = "Victor Sawal";
+            this.PageViewLog(Request);
             return View();
         }
 
@@ -90,6 +92,7 @@ namespace sawal.Controllers {
                         break;
                 }
             }
+            this.PageViewLog(Request);
             return Redirect("/main/dashboard");
         }
     }

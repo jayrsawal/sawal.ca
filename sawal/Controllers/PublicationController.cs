@@ -17,22 +17,24 @@ namespace sawal.Controllers
             Blog b = new Blog(this.db);
             BlogModel blog = b.GetBlog(id);
             ViewBag.Blog = blog;
-            ViewBag.Page = "M. Shimabukuro";
-            ViewBag.Title = blog.NavTitle;
+            ViewBag.Page = "Victor Sawal";
+            this.PageViewLog(Request);
             return View("Index");
         }
 
         [AllowAnonymous]
         public ActionResult Publication() {
-            ViewBag.Page = "M. Shimabukuro";
+            ViewBag.Page = "Victor Sawal";
             ViewBag.Title = "Publications";
+            this.PageViewLog(Request);
             return View();
         }
 
         [AllowAnonymous]
         public ActionResult Application() {
-            ViewBag.Page = "M. Shimabukuro";
+            ViewBag.Page = "Victor Sawal";
             ViewBag.Title = "Publications";
+            this.PageViewLog(Request);
             return View();
         }
     }

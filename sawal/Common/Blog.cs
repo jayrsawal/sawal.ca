@@ -45,10 +45,15 @@ order by b.publishdate desc";
 
 
 
-        public BlogModel GetBlog(string strId) {
+        public BlogModel GetBlog(string strId, bool bGUID = false) {
             BlogModel blog = new BlogModel();
 
-            SqlCommand cmd = new SqlCommand(@"select * from blog where url=@id or @id is null");
+            SqlCommand cmd;
+            if(bGUID) {
+                cmd = new SqlCommand(@"select * from blog where id=@id");
+            } else {
+                cmd = new SqlCommand(@"select * from blog where url=@id");
+            }
             if (strId != null) {
                 cmd.Parameters.AddWithValue("@id", strId);
             } else {
@@ -85,8 +90,8 @@ order by b.publishdate desc";
 
         public bool AddNewBlog(BlogModel blog) {
             SqlCommand cmd = new SqlCommand(@"
-insert into blog(nav, navtitle, title, caption, html, blogtypeid, active, publishdate)
-values(@nav, @navtitle, @title, @caption, @html, @blogtypeid, @active, @publishdate)
+insert into blog(nav, navtitle, title, caption, html, blogtypeid, active, publishdate, url, imgpath)
+values(@nav, @navtitle, @title, @caption, @html, @blogtypeid, @active, @publishdate, @url, @imagepath)
 ");
             if (blog.Nav) {
                 cmd.Parameters.AddWithValue("@nav", 1);
@@ -99,6 +104,9 @@ values(@nav, @navtitle, @title, @caption, @html, @blogtypeid, @active, @publishd
             } else {
                 cmd.Parameters.AddWithValue("@active", DBNull.Value);
             }
+
+            cmd.Parameters.AddWithValue("@url", (blog.Url == null ? "" : blog.Url));
+            cmd.Parameters.AddWithValue("@imagepath", (blog.ImagePath == null ? "" : blog.ImagePath));
 
             if (blog.NavTitle != null)
                 cmd.Parameters.AddWithValue("@navtitle", blog.NavTitle);

@@ -61,7 +61,7 @@ namespace sawal.Controllers {
             if (Request.Params["service"] != null) {
                 switch (Request.Params["service"].ToString().ToLower()) {
                     case "getblog":
-                        blog = b.GetBlog(strId);
+                        blog = b.GetBlog(strId, true);
                         break;
                 }
             }

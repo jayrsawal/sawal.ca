@@ -26,7 +26,7 @@ function getBlogSuccess(data) {
         $("#mainform #Title").val(blog.Title);
         $("#mainform #Caption").val(blog.Caption);
         $("#mainform #Url").val(blog.Url);
-        $("#mainform #Html").val(blog.Html);
+        $("#mainform div.fr-element").html(blog.Html);
         $("#mainform #PublishDate").val(new Date(blog.PublishDate).toISOString().slice(0, 10));
         $("#mainform #ImagePath").val(blog.ImagePath);
     }

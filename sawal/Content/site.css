@@ -3,6 +3,7 @@ a {
     font-weight: bold;
     color: #333332;
     -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
     a:hover {
@@ -19,6 +20,10 @@ h3 {
 html {
     color: #031424;
     background-color: #fff;
+}
+
+.transparent {
+    opacity: 0;
 }
 
 * {
@@ -47,7 +52,7 @@ html {
 
 .pad-top-5 {
     padding-top: 5%;
-}   
+}
 
 .pad-top-3 {
     padding-top: 3%;
@@ -133,7 +138,7 @@ html {
 
 .hor-border-blue {
     border-right: 15px solid #4481af;
-    border-left: 15px solid #4481af ;
+    border-left: 15px solid #4481af;
 }
 
 .main-content {
@@ -158,6 +163,8 @@ html {
 
 .data-section {
     padding: 50px 0px 100px 0px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
     .data-section h2 {
@@ -206,9 +213,9 @@ html {
     margin: 0 auto;
 }
 
-#contact a:hover {
-    background: none;
-}
+    #contact a:hover {
+        background: none;
+    }
 
     #contact .row:not(:first-child) {
         margin-top: 15px;

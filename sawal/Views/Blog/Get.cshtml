@@ -5,6 +5,15 @@
     ViewBag.Title = blog.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="header" id="page-top">
     <div class="header-text">
@@ -15,7 +24,7 @@
     </div>
     <div class="bottom-triangle"></div>
 </div>
-<div class="data-section" id="portfolio">
+<div class="data-section transparent" id="portfolio">
     <div class="container-fluid cf-50">
         <div class="row pad-top-5">
             <div class="col-sm-12 text-center">
@@ -29,6 +38,9 @@
         </div>
         <div class="row">
             @Html.Raw(blog.Html)
+        </div>
+        <div class="row text-center">
+            <div class="col-sm-12 fb-comments" data-href="@Request.Url.AbsoluteUri" data-numposts="5"></div>
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 var i = 0;
 
 $(document).ready(function () {
+    $(".transparent").removeClass("transparent");
     $(".navbar-custom").peekaboo();
     $(".data-table").DataTable();
     $('textarea#Html').froalaEditor({
